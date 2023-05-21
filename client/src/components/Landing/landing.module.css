@@ -1,0 +1,33 @@
+.landingPage {
+    background-image: url('https://3.bp.blogspot.com/-7SIWbOFwjeY/WpVGQNMVHkI/AAAAAAAAAUk/AH9JGksZix4ol_5omLQkQghUBB8dLnpxACLcBGAs/s1600/qsj9nio14r3%255B1%255D.gif');
+    background-size: cover;
+    background-position: center 0;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .landing__title {
+    font-family: "Copperplate Gothic Light";
+    font-size: 70px;
+    color: rgb(143, 255, 255);
+    height: 20vh;
+  }
+  
+  .landing__button {
+    font-size: 40px;
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;  
+  }
+  
+  .landing__button:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  }
+  
+  
