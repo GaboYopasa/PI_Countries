@@ -20,10 +20,10 @@ const postActivity = async (req, res) => {
 
         createActivity.addCountries(countries);
 
-        return res.status(200).send(createActivity)
+        return res.status(200).send(createActivity);
 
     } catch (error) {
-        res.status(401).send("Could not create activity");
+        res.status(406).send("Could not create activity");
     }
 
 }
@@ -32,7 +32,7 @@ const getActivity = async (req, res) => {
     try {
 
         const activities = await getActivities();
-        return res.status(200).send(activities)
+        return res.status(200).send(activities);
 
     } catch (error) {
         res.status(402).send("The activity doesn't exist");

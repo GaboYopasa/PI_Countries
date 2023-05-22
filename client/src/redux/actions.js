@@ -43,7 +43,7 @@ export const getDetail = (id) => {
     }
 }
 
-export function getActivities() {
+export const getActivities = () => {
     return async (dispatch) => {
         try {
 
@@ -60,7 +60,7 @@ export function getActivities() {
     };
 };
 
-export function postActivities(payload) {
+export const postActivities = (payload) => {
     return async function (dispatch) {
         await axios.post("http://localhost:3001/activities", payload);
         return dispatch({

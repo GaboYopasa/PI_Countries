@@ -9,6 +9,8 @@ export default function Detail(props) {
 
     const countryDetail = useSelector(state => state.detail);
 
+    const activities = useSelector(state => state.activities)
+
     useEffect(() => {
         dispatch(getDetail(props.match.params.id));
     }, []);
@@ -17,11 +19,15 @@ export default function Detail(props) {
     return (
         <div>
             <div>
+                <Link to="/home"><button>Back</button></Link>
+            </div>
+
+            <div>
                 {
                     countryDetail.length ?
                         <div>
                             <div>
-                                <img src={countryDetail[0].flag} alt={countryDetail[0].name}/>
+                                <img src={countryDetail[0].flag} alt={countryDetail[0].name} />
                             </div>
                             <div>
                                 <h1>{countryDetail[0].name}</h1>
@@ -38,15 +44,13 @@ export default function Detail(props) {
                             <div>  {countryDetail[0].activities.map(el => {
                                 return (
                                     <div>
-                                    
-                                            <h1>Activity</h1>
-        
+                                        <h1>Activity</h1>
                                         <div>
                                             <h3>{el.name}</h3>
                                             <h3>Difficulty: {el.difficulty}</h3>
-                                            <h3>Duration: {el.duration}</h3>
+                                            <h3>Duration (min): {el.duration}</h3>
                                             <h3>Season: {el.season}</h3>
-                                            <h3>___________</h3>
+                                            <h3>___________________</h3>
                                         </div>
                                     </div>
                                 )

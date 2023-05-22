@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, filterCountriesByContinent, orderCountriesByName, orderCountriesByPopulation, filterByActivity } from "../../redux/actions";
+import { getCountries, filterCountriesByContinent, orderCountriesByName, orderCountriesByPopulation, filterByActivity, getActivities } from "../../redux/actions";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Card from "../Card/Card";
 import Paginated from "../Paginated/Paginated";
@@ -29,6 +29,11 @@ export default function Home() {
         dispatch(filterCountriesByContinent(event.target.value));
     };
 
+    const handleFilterActivity = (ele) => {
+        dispatch(filterByActivity(ele.target.value));
+        setCurrentPage(1);
+    }
+
     const handleSortByName = (event) => {
         event.preventDefault();
         dispatch(orderCountriesByName(event.target.value));
@@ -46,6 +51,7 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(getCountries());
+        dispatch(getActivities());
     }, []);
 
     return (
@@ -61,8 +67,8 @@ export default function Home() {
                     <option value="Oceania">Oceania</option>
                 </select>
 
-                <select onChange={event => filterByActivity(event)} >
-                    <option value="AllActivities">Activities</option>
+                <select onChange={event => handleFilterActivity(event)} >
+                    <option value="allActivities">Activities</option>
                     {
                         activities?.map(value => (
                             <option value={value.name}>{value.name}</option>
