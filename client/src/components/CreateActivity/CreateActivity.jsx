@@ -2,6 +2,7 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { postActivities, getActivities, getCountries } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import style from "./createActivity.module.css";
 
 
 function validate(input) {
@@ -92,52 +93,52 @@ export default function CreateActivity() {
 
 
     return (
-        <div>
+        <div className={style.ActivityContainer}>
             <Link to="/home"><button>Back</button></Link>
-            <div>
-                <form onSubmit={value => handleSubmit(value)}>
-                    <h1>Create your activity!</h1>
-                    <div>
-                        <label>Activity: </label>
-                        <input type="text" value={input.name} name="name" onChange={handleChange} />
-                        {errors.name && <p>{errors.name}</p>}
+            <div className={style.ActivityBox}>
+                <form className={style.ActivityForm} onSubmit={value => handleSubmit(value)}>
+                    <h1 className={style.FormTitle}>Create your activity!</h1>
+                    <div className={style.FormInput}>
+                        <label className={style.LabelActivity}>Activity: </label>
+                        <input className={style.FormField} type="text" value={input.name} name="name" onChange={handleChange} />
+                        {errors.name && <p className={style.error}>{errors.name}</p>}
                     </div>
 
-                    <div>
+                    <div className={style.FormInput}>
                         <label>Difficulty: </label>
-                        <input type="range" min="1" max="5" value={input.difficulty} name="difficulty" onChange={handleChange} />
-                        {errors.difficulty && <p>{errors.difficulty}</p>}
+                        <input className={style.FormRange} type="range" min="1" max="5" value={input.difficulty} name="difficulty" onChange={handleChange} />
+                        {errors.difficulty && <p className={style.error}>{errors.difficulty}</p>}
                     </div>
 
-                    <div>
+                    <div className={style.FormInput}>
                         <label>Duration (min): </label>
-                        <input type="number" min="1" max="1440" value={input.duration} name="duration" onChange={handleChange} />
-                        {errors.duration && <p>{errors.duration}</p>}
+                        <input className={style.FormField} type="number" min="1" max="1440" value={input.duration} name="duration" onChange={handleChange} />
+                        {errors.duration && <p className={style.error}>{errors.duration}</p>}
                     </div>
 
-                    <div>
+                    <div className={style.FormInput}>
                         <label>Season: </label>
-                        <select name="season" value={input.season} onChange={handleChange}>
+                        <select className={style.Form__Select} name="season" value={input.season} onChange={handleChange}>
                             <option>Select a season...</option>
                             <option value="Winter">Winter</option>
                             <option value="Summer">Summer</option>
                             <option value="Autumn">Autumn</option>
                             <option value="Spring">Spring</option>
                         </select>
-                        {errors.season && <p>{errors.season}</p>}
+                        {errors.season && <p className={style.error}>{errors.season}</p>}
                     </div>
 
-                    <div>
+                    <div className={style.FormInput}>
                         <label>Countries: </label>
-                        <select onChange={handleSelect}>
-                            <option>Choose the countries...</option>
+                        <select className={style.FormSelect} onChange={handleSelect}>
+                            <option className={style.op}>Choose the countries...</option>
                             {
                                 countriesSortAlphabetically.map(country => (
-                                    <option value={country.id}>{`${country.name} (${country.id})`}</option>
+                                    <option className={style.op} value={country.id}>{`${country.name} (${country.id})`}</option>
                                 ))
                             }
                         </select>
-                        {errors.countryId && <p>{errors.countryId}</p>}
+                        {errors.countryId && <p className={style.error}>{errors.countryId}</p>}
                     </div>
 
                     <div>

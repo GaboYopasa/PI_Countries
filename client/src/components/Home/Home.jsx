@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, filterCountriesByContinent, orderCountriesByName, orderCountriesByPopulation, filterByActivity, getActivities } from "../../redux/actions";
+import { getCountries, filterCountriesByContinent, orderCountriesByName, orderCountriesByPopulation, filterByActivity, getActivities, orderByPopulation30M } from "../../redux/actions";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Card from "../Card/Card";
 import Paginated from "../Paginated/Paginated";
 import SearchBar from "../SearchBar/SearchBar";
+import style from "./home.module.css";
 
 export default function Home() {
 
@@ -52,10 +53,10 @@ export default function Home() {
     useEffect(() => {
         dispatch(getCountries());
         dispatch(getActivities());
-    }, []);
+    }, [dispatch]);
 
     return (
-        <div>
+        <div className={style.Home}>
             <Link to="/activity"><button>Create Activity</button></Link>
             <div>
                 <select onChange={event => handleFilterContinent(event)}>
@@ -89,19 +90,25 @@ export default function Home() {
                 </select>
             </div>
 
+
             <Paginated countriesPerPage={countriesPerPage} allCountries={allCountries.length} paginated={paginated} />
 
             <SearchBar />
 
-            {
-                currentCountries?.map(country => {
-                    return (
-                        <Link to={`/home/${country.id}`} >
-                            <Card name={country.name} flag={country.flag} continent={country.continent} />
-                        </Link>
-                    )
-                })
-            }
+            <div className={style.CardsBox}>
+                {
+                    currentCountries?.map(country => {
+                        return (
+                            <div className={style.Card} >
+                                <Link to={`/home/${country.id}`} >
+                                    <Card name={country.name} flag={country.flag} continent={country.continent} />
+                                </Link>
+                            </div>
+
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 

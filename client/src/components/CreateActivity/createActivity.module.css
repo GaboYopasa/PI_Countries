@@ -1,0 +1,92 @@
+.ActivityContainer {
+    background-image: url('https://www.frontconsulting.com/wp-content/uploads/2016/11/fondo_formulario3.jpg');
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top:0;
+    left:0;
+    size: contain;
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.ActivityBox {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: rgb(237, 237, 237, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(130, 130, 130, 0.37);
+    backdrop-filter: blur(1px);
+    width: 500px;
+    margin: 4rem auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.FormTitle {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.FormInput {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0 5rem;
+    margin-bottom: 1rem;  
+}
+
+.FormField {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 30px;
+    padding: 0 .5rem;
+    outline: none;
+    background: #aeaeae;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.FormField::placeholder {
+    color: #000
+}
+
+.error {
+    color: red;
+    background-color: #aeaeae;
+    width: 70%;
+    margin: 1.3rem auto;
+    padding: .6rem;
+    border-radius: .6rem;
+}
+
+.FormRange {
+    width: 500%;
+    background-color: red;
+}
+
+.FormSelect {
+    width: 100%;
+    background-color: #aeaeae;
+    outline: none;
+    border-radius: .6rem;
+    padding: 0 .5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.FormButton {
+    background-color: white;
+    border: none;
+    border-radius: .6rem;
+    padding: .5rem;
+    transition: .6s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.FormButton:hover {
+    background-color: #aeaeae;
+    cursor: pointer;
+}
